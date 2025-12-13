@@ -244,7 +244,24 @@ const { values } = useForm();
 
 </MdxRepl>
 
-If you need a field to be uncontrolled, avoid passing a name prop to the field.
+If you need a field to be uncontrolled, omit the `name` prop.
+
+### Form Context
+
+`useFormRepeater` requires a form context created by `useForm` to work correctly. Without it, the repeater and form values can get out of sync.
+
+In the previous examples, we created a dedicated repeater component, so whenever it was used within a `useForm` component, the form context was injected automatically. However, you may want to use the repeater in the same component where you call `useForm`.
+
+To do that, pass the form context via the `form` prop:
+
+```ts
+import { useFormRepeater, useForm } from '@formwerk/core';
+
+const form = useForm();
+const { items, Iteration } = useFormRepeater({ name: 'emails', form });
+```
+
+This hooks the repeater to the specified form context; any parent form context will be ignored.
 
 ## API
 
