@@ -63,7 +63,6 @@ export default defineConfig({
             src: 'https://www.googletagmanager.com/gtag/js?id=G-CVDZRK6FZF',
           },
         },
-
         {
           tag: 'script',
           attrs: {
@@ -82,6 +81,13 @@ export default defineConfig({
 
             gtag('config', 'G-CVDZRK6FZF');
           `,
+        },
+        {
+          tag: 'script',
+          attrs: {
+            async: true,
+            src: 'https://media.bitterbrains.com/main.js?from=AWADDEV&type=top',
+          },
         },
       ],
       favicon: '/favicon.svg',
